@@ -48,15 +48,10 @@ public class MainActivity3 extends AppCompatActivity {
         screenTrack("MainActivity3");
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
-
-// Get a reference to the image file in Firebase Storage
         StorageReference storageRef = storage.getReference().child("Untitled.png");
-
-// Get the download URL for the image file
         storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                // Use Glide to load the image into the ImageView
                 Log.d("saraaaa", "hhhhhhhhhhhhhhhhh");
                 Glide.with(getBaseContext()).load(uri.toString()).into(noteImage);
             }
@@ -79,11 +74,9 @@ public class MainActivity3 extends AppCompatActivity {
                     Log.d("TAG", "58888888888888");
 
                     if (document.exists()) {
-                        // Get the data you want to display from the document
                         String namenote = document.getString("note");
                         String notedescription = document.getString("noteDescription");
 
-                        // Set the text of your TextView to the data
                         noteTtext = findViewById(R.id.textView3);
                         noteDtext = findViewById(R.id.textView4);
 
